@@ -1,2 +1,2 @@
-# Data-frame-manipulating
+# Data-frame-manipulation
 C Programming Laboratory course (KMITL) Project
