@@ -19,7 +19,7 @@ int main(){
     }
 
     char line[200];
-
+    
     while(fgets(line, sizeof(line), file)){
         char * token;
         
@@ -33,4 +33,6 @@ int main(){
         printf("\n");       
     }
 
+    fclose(file);
+    return 0;
 }
