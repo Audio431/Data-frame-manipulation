@@ -26,5 +26,6 @@ int main(){
         }
     }
     printf("Row: %d Column: %d", row-1 , column); //not count index column and labels
+    fclose(fp);
     return 0;
 }
