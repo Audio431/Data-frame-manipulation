@@ -5,7 +5,7 @@
 
 int main(){
 
-    FILE* fp = fopen("/Users/User/OneDrive/Desktop/WORK/untitled.csv", "r");
+    FILE* fp = fopen("sample.csv", "r");
     if (fp == NULL){
         perror("Unable to open the file.");
         exit(1);
