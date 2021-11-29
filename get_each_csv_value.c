@@ -46,12 +46,3 @@ char * get_value_csv(FILE*fp,char * value,int row, int column ){
     strcpy(value,buff);
     return value;
 }
-
-
-
-
-
-
-
-
-
