@@ -15,8 +15,8 @@ void slice_str(const char * str, char * buffer, size_t start, size_t end) //func
     buffer[j] = 0;
 }
 
-void get_value_csv(FILE*fp,char * buff,int row, int column ){
-    
+void get_value_csv(FILE*fp,char * value,int row, int column ){
+
     size_t i = 0;
     size_t index_count = 0; 
 
@@ -39,15 +39,15 @@ void get_value_csv(FILE*fp,char * buff,int row, int column ){
 
     int width = count_column("untitled.csv");
 
+    char buff[100];
     if (row == 0 && column == 0) {                     //slice string for get each value in table
         slice_str(table,buff,0,index_delim[column] - 1);
     }
     else {
         slice_str(table,buff,index_delim[(row*(width+1)+column-1)] + 1,index_delim[(row*(width+1))+column] -1);
-    }  
+    }
+    strcpy(value,buff);  
 }
-
-
 
 
 
