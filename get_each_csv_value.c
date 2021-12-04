@@ -15,10 +15,11 @@ void slice_str(const char * str, char * buffer, size_t start, size_t end) //func
     buffer[j] = 0;
 }
 
-char * get_value_csv(FILE*fp,char * value,int row, int column ){
-
+void get_value_csv(FILE*fp,char * buff,int row, int column ){
+    
     size_t i = 0;
     size_t index_count = 0; 
+
     char table[1024];
     for (int c ; (c = fgetc(fp)) != EOF ;){        //find array length of delim index 
         if (c == ',' || c ==  '\n'){
@@ -34,15 +35,19 @@ char * get_value_csv(FILE*fp,char * value,int row, int column ){
             index_delim[j++] = i; 
         }
     }
-    
-    char buff[1024];
-    int (*count_column)(char*) = count_column;
+
+
+    int width = count_column("untitled.csv");
+
     if (row == 0 && column == 0) {                     //slice string for get each value in table
         slice_str(table,buff,0,index_delim[column] - 1);
     }
     else {
-        slice_str(table,buff,index_delim[(row*(count_column("untitle.csv")+1)+column-1)] + 1,index_delim[(row*(count_column("untitle.csv")+1))+column] -1);
+        slice_str(table,buff,index_delim[(row*(width+1)+column-1)] + 1,index_delim[(row*(width+1))+column] -1);
     }  
-    strcpy(value,buff);
-    return value;
 }
+
+
+
+
+
