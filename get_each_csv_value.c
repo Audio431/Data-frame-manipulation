@@ -40,8 +40,8 @@ void get_value_csv(FILE*fp,char * buff,int row, int column ){
         }
     }
 
-    const int length = count_column("untitled.csv") + 1;
-    const int width = count_row("untitled.csv") + 1;
+    const int length = count_column(fp) + 1;
+    const int width = count_row(fp) + 1;
     if (row == 0 && column == 0) {                     //slice string for get each value in table
         slice_str(table,buff,0,index_delim[column] - 1);
     }
