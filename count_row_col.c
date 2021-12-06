@@ -2,30 +2,63 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-int main(){
-
-    FILE* fp = fopen("sample.csv", "r");
-    if (fp == NULL){
-        perror("Unable to open the file.");
-        exit(1);
+int count_row(FILE*fp){
+    fseek(fp,0,SEEK_SET);
+    int row = 0; 
+    char buffer[1024];
+    while (fgets(buffer,1024, fp) != NULL){
+        ++row;
     }
 
-    int row = 0; 
+    return row-1; //not count labels
+}
+
+int count_column(FILE*fp){
+    fseek(fp,0,SEEK_SET);
+    int r = 0;
     int column = 0; 
-    char buffer[2048];
-    int i;
-    while (fgets(buffer,2048, fp) != NULL){
-        ++row;
-        if (row == 1){
-            for(i = 0 ; i < strlen(buffer); i++){
-                if(buffer[i] == ','){
+    char buff[2048];
+
+    while (fgets(buff,1024, fp) != NULL){
+        ++r;
+        if (r == 1){
+            for(size_t i = 0 ; i < strlen(buff); i++){
+                if(buff[i] == ','){
                     column++;
                 }
             }
         }
     }
-    printf("Row: %d Column: %d", row-1 , column); //not count index column and labels
-    fclose(fp);
-    return 0;
+    return column; //not count index column 
+}
+
+int count_row_fn(char * filename){
+    FILE*fp = fopen(filename,"r");
+    int row = 0; 
+    char buffer[1024];
+    while (fgets(buffer,1024, fp) != NULL){
+        ++row;
+    }
+
+    return row-1; //not count labels
+}
+
+
+int count_column_fn(char * filename){
+    FILE*fp = fopen(filename,"r");
+    int r = 0;
+    int column = 0; 
+    char buff[2048];
+
+    while (fgets(buff,1024, fp) != NULL){
+        ++r;
+        if (r == 1){
+            for(size_t i = 0 ; i < strlen(buff); i++){
+                if(buff[i] == ','){
+                    column++;
+                }
+            }
+        }
+    }
+    return column; //not count index column 
 }
