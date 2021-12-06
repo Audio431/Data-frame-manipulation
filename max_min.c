@@ -4,7 +4,7 @@
 #include "count_row_col.h"
 
 double max_column(FILE*fp,int column){
-    size_t width = count_row("untitled.csv");
+    size_t width = count_row(fp);
     double max = 0;
     for(size_t i = 0; i < width ; i++){  //get each value and store into string array
         char data[100];
@@ -22,7 +22,7 @@ double max_column(FILE*fp,int column){
     
 
 double min_column(FILE*fp,int column){
-    size_t width = count_row("untitled.csv");
+    size_t width = count_row(fp);
     double min = max_column(fp,column);
     for(size_t i = 0; i < width ; i++){  //get each value and store into string array
         char data[100];
@@ -32,5 +32,5 @@ double min_column(FILE*fp,int column){
             min = member;
         }
     }
-    return min;
+    return min;  
 }

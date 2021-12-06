@@ -4,7 +4,7 @@
 #include "count_row_col.h"
 
 double sum_column(FILE*fp,int column){
-    size_t width = count_row("untitled.csv");
+    size_t width = count_row(fp);
     double sum;
     for(size_t i = 0; i < width ; i++){  //get each value and store into string array
         char data[100];
@@ -17,7 +17,7 @@ double sum_column(FILE*fp,int column){
     
 
 double mean_column(FILE*fp,int column){
-    size_t width = count_row("untitled.csv");
+    size_t width = count_row(fp);
     return sum_row(fp,column) / width;
 }
 
