@@ -20,10 +20,11 @@ void slice_str(const char * str, char * buffer, size_t start, size_t end) //func
 
 void get_value_csv(FILE*fp,char * buff,int row, int column ){
 
+    fseek(fp,0,SEEK_END);
+    char *table = malloc(ftell(fp));
     fseek(fp,0,SEEK_SET); //set pointer file to the beginning
     size_t i = 0;
     size_t index_count = 0; 
-    char table[1024];
     for (int c ; (c = fgetc(fp)) != EOF ;){        //find array length of delim index 
         if (c == ',' || c ==  '\n'){
            index_count++;  
@@ -54,8 +55,6 @@ void get_value_csv(FILE*fp,char * buff,int row, int column ){
     else {
         slice_str(table,buff,index_delim[row*length + (column-1)] + 1,index_delim[row*length + column] -1);
     }
+    free(table);
 }
-
-
-
 
