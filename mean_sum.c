@@ -18,6 +18,6 @@ double sum_column(FILE*fp,int column){
 
 double mean_column(FILE*fp,int column){
     size_t width = count_row(fp);
-    return sum_row(fp,column) / width;
+    return sum_column(fp,column) / width;
 }
 
