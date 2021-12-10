@@ -10,6 +10,6 @@ This project is all about to manipulate data frame within .csv file format by us
   - display CSV file 
   - find the mean or max_min from the column 
 
-# Output<br /> 
+# Example<br /> 
 Use CSV sample file on test case folder.<br /> <br /> 
 ![Screenshot 2021-12-09 163425](https://user-images.githubusercontent.com/64627726/145371059-088a9f2f-9e77-4d59-9b15-b7c2e2116e80.png)
