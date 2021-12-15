@@ -17,7 +17,7 @@ int count_column(FILE*fp){
     fseek(fp,0,SEEK_SET);
     int r = 0;
     int column = 0; 
-    char buff[2048];
+    char buff[1024];
 
     while (fgets(buff,1024, fp) != NULL){
         ++r;
@@ -48,7 +48,7 @@ int count_column_fn(char * filename){
     FILE*fp = fopen(filename,"r");
     int r = 0;
     int column = 0; 
-    char buff[2048];
+    char buff[1024];
 
     while (fgets(buff,1024, fp) != NULL){
         ++r;
