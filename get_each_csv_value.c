@@ -18,7 +18,6 @@ void slice_str(const char * str, char * buffer, size_t start, size_t end) //func
 
 void get_value_csv(FILE*fp,char * buff,int row, int column ){
     
-    fseek(fp,0,SEEK_SET);
     fseek(fp,0,SEEK_END);
     char *table = malloc(ftell(fp));
     fseek(fp,0,SEEK_SET); //set pointer file to the beginning
